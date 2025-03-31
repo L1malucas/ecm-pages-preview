@@ -7,6 +7,8 @@ import OptionsInterface from './options-interface'
 import SearchInterface from './search-interface'
 import VersionControlInterface from './version-control-interface'
 import NotFound from './404'
+import FluxoAprovacaoDocumentos from './fluxo-aprovacao-documentos'
+import GerenciadorDocumentos from './sistema-ged-interface'
 
 function App() {
   return (
@@ -37,7 +39,12 @@ function App() {
           <li><Link style={{ color: 'white', textDecoration: 'none' }} to="/search">Buscar</Link></li>
           <li style={{ color: '#666' }}>|</li>
           <li><Link style={{ color: 'white', textDecoration: 'none' }} to="/version-control">Controle de Versão</Link></li>
-        </ul>
+          <li style={{ color: '#666' }}>|</li>
+          <li><Link style={{ color: 'white', textDecoration: 'none' }} to="/flow">Fluxo de Aprovação</Link></li>
+          <li style={{ color: '#666' }}>|</li>
+          <li><Link style={{ color: 'white', textDecoration: 'none' }} to="/mouse">Mouse Direito</Link></li>
+          <li style={{ color: '#666' }}>|</li>
+          </ul>
       </nav>
 
       <div style={{ marginTop: '60px' }}>
@@ -49,6 +56,8 @@ function App() {
           <Route path="/options" element={<OptionsInterface />} />
           <Route path="/search" element={<SearchInterface />} />
           <Route path="/version-control" element={<VersionControlInterface />} />
+          <Route path="/flow" element={<FluxoAprovacaoDocumentos />} />
+          <Route path="/mouse" element={<GerenciadorDocumentos />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
