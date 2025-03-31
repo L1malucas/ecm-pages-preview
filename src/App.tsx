@@ -1,34 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import DocumentPreview from './document-preview'
+import FileExplorer from './file-explorer'
+import Explorer from './file-explorer (1)'
+import OptionsInterface from './options-interface'
+import SearchInterface from './search-interface'
+import VersionControlInterface from './version-control-interface'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <BrowserRouter>
+      <nav style={{
+        backgroundColor: '#333',
+        padding: '1rem',
+        position: 'fixed',
+        top: 0,
+        width: '100%',
+      }}>
+        <ul style={{
+          listStyle: 'none',
+          margin: 0,
+          padding: 0,
+          display: 'flex',
+          gap: '1rem',
+        }}>
+          <li><Link style={{ color: 'white', textDecoration: 'none' }} to="/files">Explorador de Arquivos</Link></li>
+          <li><Link style={{ color: 'white', textDecoration: 'none' }} to="/preview">Visualização de Documento</Link></li>
+          <li><Link style={{ color: 'white', textDecoration: 'none' }} to="/explorer">Explorador</Link></li>
+          <li><Link style={{ color: 'white', textDecoration: 'none' }} to="/options">Opções</Link></li>
+          <li><Link style={{ color: 'white', textDecoration: 'none' }} to="/search">Buscar</Link></li>
+          <li><Link style={{ color: 'white', textDecoration: 'none' }} to="/version-control">Controle de Versão</Link></li>
+        </ul>
+      </nav>
+
+      <div style={{ marginTop: '60px' }}>
+        <Routes>
+          <Route path="/files" element={<FileExplorer />} />
+          <Route path="/preview" element={<DocumentPreview />} />
+          <Route path="/explorer" element={<Explorer />} />
+          <Route path="/options" element={<OptionsInterface />} />
+          <Route path="/search" element={<SearchInterface />} />
+          <Route path="/version-control" element={<VersionControlInterface />} />
+          <Route path="/" element={<FileExplorer />} /> 
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </BrowserRouter>
   )
 }
 
