@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react';
-import { ChevronLeft, Download, Share, Star, Printer, Edit, Trash2, MoreHorizontal, Maximize2, Minimize2, ZoomIn, ZoomOut, FileText, RotateCw, Image, Film, ArrowLeft, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronLeft, Download, Share, Star, Printer, Edit,  MoreHorizontal, Maximize2, Minimize2, ZoomIn, ZoomOut,  RotateCw,  ArrowLeft, ArrowRight } from 'lucide-react';
 
 const DocumentPreview = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(5);
+  const [totalPages, _setTotalPages] = useState(5);
   const [zoomLevel, setZoomLevel] = useState(100);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showComments, setShowComments] = useState(false);
-  const [activeTab, setActiveTab] = useState('preview');
+  const [_activeTab, _activeTabsetActiveTab] = useState('preview');
   
   // Sample document metadata
   const documentInfo = {
